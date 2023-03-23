@@ -12,8 +12,8 @@
 		<div class="col-md-12">
 			<form th:action="@{/save}" th:object=${persona} method="POST">
 				<div class="card">
-					<div class="cardheader">
-						<h3>MODULO PERSONA</h3>
+					<div class="cardheader" style="text-align:center;">
+						<h3>MODULO PERSONA QUE ATENDIO LA CALAMIDAD</h3>
 					</div>
 					<div class="card-body">
 						<div class="form-group">
@@ -36,10 +36,17 @@
 							<label>CARGO</label> <input th:field="*{tipoPersona}" type="text"
 								class="form-control" />
 						</div>
-					</div>
-					<div class="card-footer">
-						<input  type="submit" value="GUARDAR" class="btn btn-primary">
-						<a  th:href="@{/listar}" class="btn btn-primary">REGRESAR</a> <br>
+					<div>
+					  <label>SELECCIONE PERSONA:</label>
+					  <select th:each="persona:${personas}">
+				  		  <option value="0">Seleccione:</option>
+						  <option th:text="${persona.codPersona}"></option>
+						  <option th:text="${persona.nombre}"></option>
+					  </select>
+					</div>					
+					<div class="card-footer">	
+						<input  type="submit" value="GUARDAR" class="btn btn-primary">				
+						<a  th:href="@{/Emergencia}" class="btn btn-primary">REGRESAR</a> <br>
 						<br>
 					</div>
 				</div>

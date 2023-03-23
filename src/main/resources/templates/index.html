@@ -13,6 +13,7 @@
 			<thead>
 			<h2>DATOS PERSONALES DEL TRABAJADOR</h2>
 				<tr>
+					<th>CODIGO</th>
 					<th>CEDULA</th>
 					<th>NOMBRE</th>
 					<th>APELLIDO</th>
@@ -21,13 +22,16 @@
 			</thead>
 			<tbody>
 				<tr th:each="persona:${personas}">
-					
+					<td th:text="${persona.codPersona}"></td>
 					<td th:text="${persona.cedula}"></td>
 					<td th:text="${persona.nombre}"></td>
 					<td th:text="${persona.apellido}"></td>
 					<td th:text="${persona.tipoPersona}"></td>
-					<td><a class="btn btn-warning">Editar</a> <a
-						class="btn btn-danger">Eliminar</a></td>
+					<td>
+										
+						<a th:href="@{/editar/}+${persona.codPersona}"  class="btn btn-warning">Editar</a>
+					 	<a th:onclick="eliminar([[${persona.codPersona}]])" href="#" class="btn btn-danger">Eliminar</a></td>
+							
 				</tr>
 			</tbody>
 		</table>
@@ -35,5 +39,10 @@
 			<a th:href ="@{/new}" class="btn btn-primary">Nuevo</a>
 	<br> <br>
 	</div>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="/funciones.js"></script>
 </body>
 </html>
