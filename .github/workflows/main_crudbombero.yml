@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'Crudbombero'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5C2EAAA75692460E8484EED200FE7C5B }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BEE63D6C3C1E47A38984898F73BCB289 }}
           package: '*.jar'
