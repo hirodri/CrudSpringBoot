@@ -10,35 +10,50 @@
 <body>
 	<div class="container mt-15">
 		<div class="col-md-12">
-			<form th:action="@{/save}" th:object=${persona} method="POST">
+			<form th:action="@{/guardar}" th:object=${emergencia} method="POST">
 				<div class="card">
-					<div class="cardheader" style="text-align:center;">
-						<h3>MODULO PERSONA QUE ATENDIO LA CALAMIDAD</h3>
+					<div class="cardheader">
+						<h3>GENERAR UN NUEVA FICHA</h3>
 					</div>
 					<div class="card-body">
 						<div class="form-group">
-							<label>CODIGO</label> <input disabled th:field="*{codPersona}" type="text"
+							<label>CODIGO</label> <input th:field="*{codEmergencia}"
+								type="text" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>TTULO</label> <input th:field="*{titulo}" type="text"
 								class="form-control" />
 						</div>
 						<div class="form-group">
-							<label>CEDULA</label> <input disabled th:field="*{cedula}" type="text"
+							<label>DESCRIPCION</label> <input th:field="*{descripcion}"
+								type="text" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>FECHA DE LA EMERGENCIA</label> <input
+								th:field="*{fechaEmergencia}" type="text" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>FECHA CREACION FICHA</label> <input
+								th:field="*{fechaCreacion}" type="text" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>LATITUD</label> <input th:field="*{latitud}" type="text"
 								class="form-control" />
 						</div>
 						<div class="form-group">
-							<label>NOMBRE</label> <input disabled th:field="*{nombre}" type="text"
-								class="form-control" />
-						</div>
-						<div class="form-group">
-							<label>APELLIDO</label> <input disabled th:field="*{apellido}" type="text"
-								class="form-control" />
-						</div>
-						<div class="form-group">
-							<label>CARGO</label> <input disabled th:field="*{tipoPersona}" type="text"
-								class="form-control" />
+							<label> PERSONA QUE ATENDIO EL INCIDENTE</label> 
+							
+								<select class="form-control" id="testOrder" name="testOrder">
+							        <option value="">seleccionar</option>
+							        <option th:each="persona: ${personas}"
+							                th:value="${persona.codPersona}"
+							                th:text="${persona.nombre} + ${persona.apellido}"></option>
+							    </select>
 						</div>
 					</div>
-					<div class="card-footer">					
-						<a  th:href="@{/Emergencia}" class="btn btn-primary">REGRESAR</a> <br>
+					<div class="card-footer">
+						<input type="submit" value="GUARDAR" class="btn btn-primary">
+						<a th:href="@{/emergencia}" class="btn btn-primary">REGRESAR</a> <br>
 						<br>
 					</div>
 				</div>

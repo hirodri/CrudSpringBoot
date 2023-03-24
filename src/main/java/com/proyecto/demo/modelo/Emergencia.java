@@ -22,7 +22,9 @@ public class Emergencia {
 	private int codEmergencia;
 	private String titulo;
 	private String descripcion;
-	private Date fecha;
+	private Date fechaEmergencia;
+	private Date fechaCreacion;
+	private float latitud;
 	
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -53,14 +55,6 @@ public class Emergencia {
 		this.descripcion = descripcion;
 	}
 
-	public Date getFecha() {
-		return fecha;
-	}
-
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
-	}
-
 	public Persona getPersonal() {
 		return personal;
 	}
@@ -69,15 +63,40 @@ public class Emergencia {
 		this.personal = personal;
 	}
 
+	public Date getFechaEmergencia() {
+		return fechaEmergencia;
+	}
 
-	public Emergencia(int codEmergencia, String titulo, String descripcion, Date fecha, Persona personal) {
+	public void setFechaEmergencia(Date fechaEmergencia) {
+		this.fechaEmergencia = fechaEmergencia;
+	}
+
+	public Date getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
+	public float getLatitud() {
+		return latitud;
+	}
+
+	public void setLatitud(float latitud) {
+		this.latitud = latitud;
+	}
+
+	public Emergencia(int codEmergencia, String titulo, String descripcion, Date fechaEmergencia, Date fechaCreacion,
+			float latitud, Persona personal) {
 		super();
 		this.codEmergencia = codEmergencia;
 		this.titulo = titulo;
 		this.descripcion = descripcion;
-		this.fecha = fecha;
+		this.fechaEmergencia = fechaEmergencia;
+		this.fechaCreacion = fechaCreacion;
+		this.latitud = latitud;
 		this.personal = personal;
-		
 	}
 
 	public Emergencia() {

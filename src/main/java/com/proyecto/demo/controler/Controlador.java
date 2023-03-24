@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.proyecto.demo.interfaceService.IpersonaService;
 import com.proyecto.demo.modelo.Persona;
+import com.proyecto.demo.services.PersonaService;
 
 import jakarta.validation.Valid;
 
@@ -31,10 +32,15 @@ public class Controlador {
 	}
 	@GetMapping("/new")
 	public String agregar(Model model) {
+		
+		
+		List<Persona> listapersonas= service.listar();
+		
 		model.addAttribute("persona", new Persona());
+		model.addAttribute("listar",listapersonas);
 		return "form";
 	}
-	@PostMapping ("save")
+	@PostMapping ("/save")
 	public String save(@Valid Persona p,Model model) {
 		service.save(p);
 		return "redirect:/listar";

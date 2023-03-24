@@ -8,17 +8,18 @@
 
 </head>
 <body>
-	<div class="container mt-4">
-		<table class="table">
+	<div class="container mt-8">
+		<table class="table" WIDTH="15%">
 			<thead>
 				<h2>FICHA DE EMERGENCIA</h2>
-				<div style="text-align:right;"><a th:href ="@{/newEm}" class="btn btn-primary">Nuevo</a></div>
 				<tr>
 					<th>CODIGO</th>
 					<th>TITULO</th>
 					<th>DESCRIPCION</th>
-					<th>FECHA</th>
-					<th>PERSONA</th>
+					<th>FECHA EMERGENCIA </th>
+					<th>FECHA CREACION</th>
+					<th>LATITUD</th>
+					<th>PERSONA A CARGO</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -26,12 +27,16 @@
 					<td th:text="${emergencia.codEmergencia}"></td>
 					<td th:text="${emergencia.titulo}"></td>
 					<td th:text="${emergencia.descripcion}"></td>
-					<td th:text="${emergencia.fecha}"></td>					
+					<td th:text="${emergencia.fechaEmergencia}"></td>
+					<td th:text="${emergencia.fechaCreacion}"></td>	
+					<td th:text="${emergencia.latitud}"></td>				
 					<td><a th:href="@{/verPersona/}+${emergencia.codEmergencia}" class="btn btn-success">Ver persona</a><td>									
-					<td><a class="btn btn-warning">Editar</a> <a class="btn btn-danger">Eliminar</a></td>
+					<td><a th:href="@{/actualizar/}+${emergencia.codEmergencia}" class="btn btn-warning">Editar</a> 
+					<td><a class="btn btn-danger">Eliminar</a>	
 				</tr>
 			</tbody>
-		</table>		
+		</table>
+			<div style="text-align:right;"><a th:href ="@{/nuevaficha}" class="btn btn-primary">Nuevo</a></div>		
 	</div>
 </body>
 </html>

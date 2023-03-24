@@ -17,32 +17,30 @@
 					</div>
 					<div class="card-body">
 						<div class="form-group">
-							<label>CODIGO</label> <input th:field="*{codPersona}" type="text"
+							<label>CODIGO</label> <input disabled th:field="*{codPersona}" type="text"
 								class="form-control" />
 						</div>
 						<div class="form-group">
-							<label>CEDULA</label> <input th:field="*{cedula}" type="text"
+							<label>CEDULA</label> <input disabled th:field="*{cedula}" type="text"
 								class="form-control" />
 						</div>
 						<div class="form-group">
-							<label>NOMBRE</label> <input th:field="*{nombre}" type="text"
+							<label>NOMBRE</label> <input disabled th:field="*{nombre}" type="text"
+								class="form-control" />
+						</div>
+						<div  class="form-group">
+							<label> APELLIDO</label> <input disabled th:field="*{apellido}" type="text"
 								class="form-control" />
 						</div>
 						<div class="form-group">
-							<label>APELLIDO</label> <input th:field="*{apellido}" type="text"
-								class="form-control" />
-						</div>
-						<div class="form-group">
-							<label>CARGO</label> <input th:field="*{tipoPersona}" type="text"
+							<label>CARGO</label> <input disabled th:field="*{tipoPersona}" type="text"
 								class="form-control" />
 						</div>
 					</div>
 					<div class="card-footer">
-						<input  type="submit" value="GUARDAR" class="btn btn-primary">
-						<a  th:href="@{/listar}" class="btn btn-primary">REGRESAR</a> <br>
+						<a  th:href="@{/emergencia}" class="btn btn-primary">REGRESAR</a> <br>
 						<br>
 					</div>
-					
 				</div>
 			</form>
 		</div>
